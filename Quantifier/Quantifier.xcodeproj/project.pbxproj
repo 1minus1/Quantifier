@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67141F3A17810CB3000A4F1E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67141F3917810CB3000A4F1E /* Storyboard.storyboard */; };
+		67141F3C1781122F000A4F1E /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67141F3B1781122F000A4F1E /* HeaderView.xib */; };
+		67141F4617825B93000A4F1E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67141F4417825B92000A4F1E /* DetailViewController.m */; };
+		67141F4717825B93000A4F1E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67141F4517825B92000A4F1E /* DetailViewController.xib */; };
+		67156D1817FBA0A50089F567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF19177F4C09001FC0A7 /* UIKit.framework */; };
+		67156D1B17FBA16E0089F567 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 67156D1A17FBA16E0089F567 /* UIImage+ImageEffects.m */; };
+		671F4BA918D7C52300926C73 /* DataPointViewFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671F4BA718D7C52300926C73 /* DataPointViewFirstCell.m */; };
+		671F4BAA18D7C52300926C73 /* DataPointViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671F4BA818D7C52300926C73 /* DataPointViewFirstCell.xib */; };
+		671F4BAD18D7C6AE00926C73 /* TableBasedDataPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671F4BAC18D7C6AE00926C73 /* TableBasedDataPointViewController.m */; };
+		6734B4ED177F6CA000484CEC /* QuantifiersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6734B4EC177F6CA000484CEC /* QuantifiersViewController.m */; };
+		673CF3AD18A064F300B062B2 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CF3AC18A064F300B062B2 /* CoreMotion.framework */; };
+		67551A7918D7E0750099B339 /* DatePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67551A7718D7E0750099B339 /* DatePickerTableViewCell.m */; };
+		67551A7A18D7E0750099B339 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67551A7818D7E0750099B339 /* DatePickerTableViewCell.xib */; };
+		67551A7E18DD29570099B339 /* DataPointDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67551A7C18DD29570099B339 /* DataPointDateTableViewCell.m */; };
+		67551A7F18DD29570099B339 /* DataPointDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67551A7D18DD29570099B339 /* DataPointDateTableViewCell.xib */; };
+		67662E06182547A800A31022 /* SZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 67662E05182547A800A31022 /* SZTheme.m */; };
+		67662E0A1825504300A31022 /* ThemesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67662E081825504300A31022 /* ThemesTableViewController.m */; };
+		67662E0B1825504300A31022 /* ThemesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67662E091825504300A31022 /* ThemesTableViewController.xib */; };
+		676C578018BC483100295013 /* SJZFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 676C577E18BC483100295013 /* SJZFirstCell.m */; };
+		676C578118BC483100295013 /* SJZFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 676C577F18BC483100295013 /* SJZFirstCell.xib */; };
+		6771A8BB183092E9004BD6BF /* SZCurveFit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6771A8BA183092E9004BD6BF /* SZCurveFit.m */; };
+		67761742184029E900D243D6 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67761741184029E900D243D6 /* gear@2x.png */; };
+		6776EF16177F4C09001FC0A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF15177F4C09001FC0A7 /* Foundation.framework */; };
+		6776EF18177F4C09001FC0A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF17177F4C09001FC0A7 /* CoreGraphics.framework */; };
+		6776EF20177F4C09001FC0A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6776EF1E177F4C09001FC0A7 /* InfoPlist.strings */; };
+		6776EF22177F4C09001FC0A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6776EF21177F4C09001FC0A7 /* main.m */; };
+		6776EF26177F4C09001FC0A7 /* QuantifierAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6776EF25177F4C09001FC0A7 /* QuantifierAppDelegate.m */; };
+		6776EF28177F4C09001FC0A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6776EF27177F4C09001FC0A7 /* Images.xcassets */; };
+		6776EF2F177F4C09001FC0A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF2E177F4C09001FC0A7 /* XCTest.framework */; };
+		6776EF30177F4C09001FC0A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF15177F4C09001FC0A7 /* Foundation.framework */; };
+		6776EF31177F4C09001FC0A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6776EF19177F4C09001FC0A7 /* UIKit.framework */; };
+		6776EF39177F4C09001FC0A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6776EF37177F4C09001FC0A7 /* InfoPlist.strings */; };
+		6776EF3B177F4C09001FC0A7 /* QuantifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6776EF3A177F4C09001FC0A7 /* QuantifierTests.m */; };
+		6780A044181D607F00FEB2CA /* StatsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780A042181D607F00FEB2CA /* StatsHeaderViewController.m */; };
+		6780A045181D607F00FEB2CA /* StatsHeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6780A043181D607F00FEB2CA /* StatsHeaderViewController.xib */; };
+		6786AEA117B0895200F7F990 /* SZDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786AEA017B0895200F7F990 /* SZDataPoint.m */; };
+		6786AEA817B08A0400F7F990 /* SZQuantifierStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786AEA717B08A0400F7F990 /* SZQuantifierStore.m */; };
+		6786AEAA17B08A1800F7F990 /* SZQuantifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786AEA917B08A1800F7F990 /* SZQuantifier.m */; };
+		6791C7531991CA26009018E3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6791C7521991CA26009018E3 /* Dropbox.framework */; };
+		679485BB17BDC70E007452FA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679485BA17BDC70E007452FA /* CFNetwork.framework */; };
+		679485BD17BDC727007452FA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679485BC17BDC727007452FA /* SystemConfiguration.framework */; };
+		679485BF17BDC741007452FA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 679485BE17BDC741007452FA /* libc++.dylib */; };
+		679E869619C62ADA001338A7 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679E869519C62ADA001338A7 /* LaunchView.xib */; };
+		67A2A08018037F8C00E5FC1E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A07E18037F8C00E5FC1E /* SettingsTableViewController.m */; };
+		67A2A08118037F8C00E5FC1E /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A07F18037F8C00E5FC1E /* SettingsTableViewController.xib */; };
+		67AB8D8E19C645CD002F9016 /* gear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67AB8D8D19C645CD002F9016 /* gear@3x.png */; };
+		67B1EFA018DD406A00007EB2 /* IncrementingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B1EF9E18DD406A00007EB2 /* IncrementingTableViewCell.m */; };
+		67B1EFA118DD406A00007EB2 /* IncrementingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B1EF9F18DD406A00007EB2 /* IncrementingTableViewCell.xib */; };
+		67BC7B0E18BEDC8D00DAB63D /* QuantifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BC7B0C18BEDC8C00DAB63D /* QuantifierTableViewCell.m */; };
+		67BC7B0F18BEDC8D00DAB63D /* QuantifierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67BC7B0D18BEDC8C00DAB63D /* QuantifierTableViewCell.xib */; };
+		67C8C94F17A59B3100F4EAA9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C8C94E17A59B3100F4EAA9 /* Security.framework */; };
+		67C8C95117A59B3A00F4EAA9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C8C95017A59B3A00F4EAA9 /* QuartzCore.framework */; };
+		67C8C95317A5A24100F4EAA9 /* DropboxIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C8C95217A5A24000F4EAA9 /* DropboxIcon.png */; };
+		67D5BFCE19C64840000C66FE /* toggleicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D5BFCC19C64840000C66FE /* toggleicon@2x.png */; };
+		67D5BFCF19C64840000C66FE /* toggleicon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D5BFCD19C64840000C66FE /* toggleicon@3x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6776EF32177F4C09001FC0A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6776EF0A177F4C09001FC0A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6776EF11177F4C09001FC0A7;
+			remoteInfo = Quantifier;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		67141F3917810CB3000A4F1E /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Quantifier/Storyboard.storyboard; sourceTree = "<group>"; };
+		67141F3B1781122F000A4F1E /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = Quantifier/HeaderView.xib; sourceTree = "<group>"; };
+		67141F4317825B92000A4F1E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Quantifier/DetailViewController.h; sourceTree = "<group>"; };
+		67141F4417825B92000A4F1E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Quantifier/DetailViewController.m; sourceTree = "<group>"; };
+		67141F4517825B92000A4F1E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = Quantifier/DetailViewController.xib; sourceTree = "<group>"; };
+		67156D1917FBA16E0089F567 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		67156D1A17FBA16E0089F567 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		671F4BA618D7C52300926C73 /* DataPointViewFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPointViewFirstCell.h; sourceTree = "<group>"; };
+		671F4BA718D7C52300926C73 /* DataPointViewFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPointViewFirstCell.m; sourceTree = "<group>"; };
+		671F4BA818D7C52300926C73 /* DataPointViewFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataPointViewFirstCell.xib; sourceTree = "<group>"; };
+		671F4BAB18D7C6AE00926C73 /* TableBasedDataPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBasedDataPointViewController.h; sourceTree = "<group>"; };
+		671F4BAC18D7C6AE00926C73 /* TableBasedDataPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableBasedDataPointViewController.m; sourceTree = "<group>"; };
+		6734B4E5177F660700484CEC /* SZQuantifierStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZQuantifierStore.h; sourceTree = "<group>"; };
+		6734B4EB177F6CA000484CEC /* QuantifiersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantifiersViewController.h; sourceTree = "<group>"; };
+		6734B4EC177F6CA000484CEC /* QuantifiersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantifiersViewController.m; sourceTree = "<group>"; };
+		673CF3AC18A064F300B062B2 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		67551A7618D7E0750099B339 /* DatePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerTableViewCell.h; sourceTree = "<group>"; };
+		67551A7718D7E0750099B339 /* DatePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerTableViewCell.m; sourceTree = "<group>"; };
+		67551A7818D7E0750099B339 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		67551A7B18DD29570099B339 /* DataPointDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPointDateTableViewCell.h; sourceTree = "<group>"; };
+		67551A7C18DD29570099B339 /* DataPointDateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPointDateTableViewCell.m; sourceTree = "<group>"; };
+		67551A7D18DD29570099B339 /* DataPointDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataPointDateTableViewCell.xib; sourceTree = "<group>"; };
+		67662DFE181DFF3600A31022 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		67662DFF181DFF3600A31022 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		67662E00181DFF3600A31022 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		67662E04182547A800A31022 /* SZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTheme.h; sourceTree = "<group>"; };
+		67662E05182547A800A31022 /* SZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTheme.m; sourceTree = "<group>"; };
+		67662E071825504300A31022 /* ThemesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableViewController.h; sourceTree = "<group>"; };
+		67662E081825504300A31022 /* ThemesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableViewController.m; sourceTree = "<group>"; };
+		67662E091825504300A31022 /* ThemesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableViewController.xib; sourceTree = "<group>"; };
+		676C577D18BC483100295013 /* SJZFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJZFirstCell.h; sourceTree = "<group>"; };
+		676C577E18BC483100295013 /* SJZFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJZFirstCell.m; sourceTree = "<group>"; };
+		676C577F18BC483100295013 /* SJZFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SJZFirstCell.xib; sourceTree = "<group>"; };
+		6771A8B9183092E9004BD6BF /* SZCurveFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCurveFit.h; sourceTree = "<group>"; };
+		6771A8BA183092E9004BD6BF /* SZCurveFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCurveFit.m; sourceTree = "<group>"; };
+		6776173C18401F7C00D243D6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		67761741184029E900D243D6 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear@2x.png"; path = "../Images and Icons/gear@2x.png"; sourceTree = "<group>"; };
+		6776EF12177F4C09001FC0A7 /* Quantifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quantifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6776EF15177F4C09001FC0A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6776EF17177F4C09001FC0A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6776EF19177F4C09001FC0A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6776EF1D177F4C09001FC0A7 /* Quantifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Quantifier-Info.plist"; path = "../Quantifier/Quantifier-Info.plist"; sourceTree = "<group>"; };
+		6776EF1F177F4C09001FC0A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6776EF21177F4C09001FC0A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../Quantifier/main.m; sourceTree = "<group>"; };
+		6776EF23177F4C09001FC0A7 /* Quantifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Quantifier-Prefix.pch"; path = "../Quantifier/Quantifier-Prefix.pch"; sourceTree = "<group>"; };
+		6776EF24177F4C09001FC0A7 /* QuantifierAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantifierAppDelegate.h; sourceTree = "<group>"; };
+		6776EF25177F4C09001FC0A7 /* QuantifierAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantifierAppDelegate.m; sourceTree = "<group>"; };
+		6776EF27177F4C09001FC0A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6776EF2D177F4C09001FC0A7 /* QuantifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6776EF2E177F4C09001FC0A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6776EF36177F4C09001FC0A7 /* QuantifierTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantifierTests-Info.plist"; sourceTree = "<group>"; };
+		6776EF38177F4C09001FC0A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6776EF3A177F4C09001FC0A7 /* QuantifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantifierTests.m; sourceTree = "<group>"; };
+		6776EF4D177F52A4001FC0A7 /* SZDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDataPoint.h; sourceTree = "<group>"; };
+		6780A041181D607F00FEB2CA /* StatsHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsHeaderViewController.h; sourceTree = "<group>"; };
+		6780A042181D607F00FEB2CA /* StatsHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsHeaderViewController.m; sourceTree = "<group>"; };
+		6780A043181D607F00FEB2CA /* StatsHeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsHeaderViewController.xib; sourceTree = "<group>"; };
+		6786AE9417B088F900F7F990 /* SZQuantifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZQuantifier.h; sourceTree = "<group>"; };
+		6786AEA017B0895200F7F990 /* SZDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDataPoint.m; sourceTree = "<group>"; };
+		6786AEA717B08A0400F7F990 /* SZQuantifierStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZQuantifierStore.m; sourceTree = "<group>"; };
+		6786AEA917B08A1800F7F990 /* SZQuantifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZQuantifier.m; sourceTree = "<group>"; };
+		6791C7521991CA26009018E3 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		679485BA17BDC70E007452FA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		679485BC17BDC727007452FA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		679485BE17BDC741007452FA /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		679E869519C62ADA001338A7 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
+		67A2A07D18037F8C00E5FC1E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		67A2A07E18037F8C00E5FC1E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		67A2A07F18037F8C00E5FC1E /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		67AB8D8D19C645CD002F9016 /* gear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@3x.png"; sourceTree = "<group>"; };
+		67B1EF9D18DD406A00007EB2 /* IncrementingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncrementingTableViewCell.h; sourceTree = "<group>"; };
+		67B1EF9E18DD406A00007EB2 /* IncrementingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncrementingTableViewCell.m; sourceTree = "<group>"; };
+		67B1EF9F18DD406A00007EB2 /* IncrementingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncrementingTableViewCell.xib; sourceTree = "<group>"; };
+		67BC7B0B18BEDC8C00DAB63D /* QuantifierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantifierTableViewCell.h; sourceTree = "<group>"; };
+		67BC7B0C18BEDC8C00DAB63D /* QuantifierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantifierTableViewCell.m; sourceTree = "<group>"; };
+		67BC7B0D18BEDC8C00DAB63D /* QuantifierTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuantifierTableViewCell.xib; sourceTree = "<group>"; };
+		67C8C94E17A59B3100F4EAA9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		67C8C95017A59B3A00F4EAA9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		67C8C95217A5A24000F4EAA9 /* DropboxIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DropboxIcon.png; path = ../Quantifier/DropboxIcon.png; sourceTree = "<group>"; };
+		67D5BFCC19C64840000C66FE /* toggleicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toggleicon@2x.png"; path = "../Images and Icons/toggleicon@2x.png"; sourceTree = "<group>"; };
+		67D5BFCD19C64840000C66FE /* toggleicon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toggleicon@3x.png"; path = "../Images and Icons/toggleicon@3x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6776EF0F177F4C09001FC0A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				673CF3AD18A064F300B062B2 /* CoreMotion.framework in Frameworks */,
+				67156D1817FBA0A50089F567 /* UIKit.framework in Frameworks */,
+				679485BF17BDC741007452FA /* libc++.dylib in Frameworks */,
+				679485BD17BDC727007452FA /* SystemConfiguration.framework in Frameworks */,
+				679485BB17BDC70E007452FA /* CFNetwork.framework in Frameworks */,
+				6791C7531991CA26009018E3 /* Dropbox.framework in Frameworks */,
+				67C8C95117A59B3A00F4EAA9 /* QuartzCore.framework in Frameworks */,
+				67C8C94F17A59B3100F4EAA9 /* Security.framework in Frameworks */,
+				6776EF18177F4C09001FC0A7 /* CoreGraphics.framework in Frameworks */,
+				6776EF16177F4C09001FC0A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6776EF2A177F4C09001FC0A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6776EF2F177F4C09001FC0A7 /* XCTest.framework in Frameworks */,
+				6776EF31177F4C09001FC0A7 /* UIKit.framework in Frameworks */,
+				6776EF30177F4C09001FC0A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		676C578218BD7B4700295013 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				67141F4317825B92000A4F1E /* DetailViewController.h */,
+				67141F4417825B92000A4F1E /* DetailViewController.m */,
+				67141F4517825B92000A4F1E /* DetailViewController.xib */,
+				676C577D18BC483100295013 /* SJZFirstCell.h */,
+				676C577E18BC483100295013 /* SJZFirstCell.m */,
+				676C577F18BC483100295013 /* SJZFirstCell.xib */,
+				6780A041181D607F00FEB2CA /* StatsHeaderViewController.h */,
+				6780A042181D607F00FEB2CA /* StatsHeaderViewController.m */,
+				6780A043181D607F00FEB2CA /* StatsHeaderViewController.xib */,
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
+		676C578318BD7B5D00295013 /* QuantifiersView */ = {
+			isa = PBXGroup;
+			children = (
+				6734B4EB177F6CA000484CEC /* QuantifiersViewController.h */,
+				6734B4EC177F6CA000484CEC /* QuantifiersViewController.m */,
+				67141F3B1781122F000A4F1E /* HeaderView.xib */,
+				67BC7B0B18BEDC8C00DAB63D /* QuantifierTableViewCell.h */,
+				67BC7B0C18BEDC8C00DAB63D /* QuantifierTableViewCell.m */,
+				67BC7B0D18BEDC8C00DAB63D /* QuantifierTableViewCell.xib */,
+			);
+			name = QuantifiersView;
+			sourceTree = "<group>";
+		};
+		676C578418BD7C1400295013 /* DataPointView */ = {
+			isa = PBXGroup;
+			children = (
+				671F4BAB18D7C6AE00926C73 /* TableBasedDataPointViewController.h */,
+				671F4BAC18D7C6AE00926C73 /* TableBasedDataPointViewController.m */,
+				679F27D218DDECC9004A27BD /* DataPointView Cell Classes */,
+			);
+			name = DataPointView;
+			sourceTree = "<group>";
+		};
+		676C578518BD7C2100295013 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A07E18037F8C00E5FC1E /* SettingsTableViewController.m */,
+				67A2A07D18037F8C00E5FC1E /* SettingsTableViewController.h */,
+				67A2A07F18037F8C00E5FC1E /* SettingsTableViewController.xib */,
+				67662E071825504300A31022 /* ThemesTableViewController.h */,
+				67662E091825504300A31022 /* ThemesTableViewController.xib */,
+				67662E081825504300A31022 /* ThemesTableViewController.m */,
+			);
+			name = SettingsView;
+			sourceTree = "<group>";
+		};
+		6776EF09177F4C09001FC0A7 = {
+			isa = PBXGroup;
+			children = (
+				679E869519C62ADA001338A7 /* LaunchView.xib */,
+				6786AEB017B08C5800F7F990 /* Views */,
+				6786AEAF17B08C3A00F7F990 /* Model */,
+				6776EF1B177F4C09001FC0A7 /* Other */,
+				6776EF35177F4C09001FC0A7 /* Supporting Files */,
+				6776EF34177F4C09001FC0A7 /* QuantifierTests */,
+				6776EF14177F4C09001FC0A7 /* Frameworks */,
+				6776EF13177F4C09001FC0A7 /* Products */,
+				67761741184029E900D243D6 /* gear@2x.png */,
+				67D5BFCC19C64840000C66FE /* toggleicon@2x.png */,
+				67D5BFCD19C64840000C66FE /* toggleicon@3x.png */,
+				67AB8D8D19C645CD002F9016 /* gear@3x.png */,
+			);
+			sourceTree = "<group>";
+		};
+		6776EF13177F4C09001FC0A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6776EF12177F4C09001FC0A7 /* Quantifier.app */,
+				6776EF2D177F4C09001FC0A7 /* QuantifierTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6776EF14177F4C09001FC0A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6791C7521991CA26009018E3 /* Dropbox.framework */,
+				673CF3AC18A064F300B062B2 /* CoreMotion.framework */,
+				6776173C18401F7C00D243D6 /* AdSupport.framework */,
+				679485BE17BDC741007452FA /* libc++.dylib */,
+				679485BC17BDC727007452FA /* SystemConfiguration.framework */,
+				679485BA17BDC70E007452FA /* CFNetwork.framework */,
+				67C8C95017A59B3A00F4EAA9 /* QuartzCore.framework */,
+				67C8C94E17A59B3100F4EAA9 /* Security.framework */,
+				6776EF15177F4C09001FC0A7 /* Foundation.framework */,
+				6776EF17177F4C09001FC0A7 /* CoreGraphics.framework */,
+				6776EF19177F4C09001FC0A7 /* UIKit.framework */,
+				6776EF2E177F4C09001FC0A7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6776EF1B177F4C09001FC0A7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6771A8B9183092E9004BD6BF /* SZCurveFit.h */,
+				6771A8BA183092E9004BD6BF /* SZCurveFit.m */,
+				67156D1917FBA16E0089F567 /* UIImage+ImageEffects.h */,
+				67156D1A17FBA16E0089F567 /* UIImage+ImageEffects.m */,
+				6776EF24177F4C09001FC0A7 /* QuantifierAppDelegate.h */,
+				6776EF25177F4C09001FC0A7 /* QuantifierAppDelegate.m */,
+				6776EF27177F4C09001FC0A7 /* Images.xcassets */,
+				67662E04182547A800A31022 /* SZTheme.h */,
+				67662E05182547A800A31022 /* SZTheme.m */,
+			);
+			name = Other;
+			path = Quantifier;
+			sourceTree = "<group>";
+		};
+		6776EF34177F4C09001FC0A7 /* QuantifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				6776EF3A177F4C09001FC0A7 /* QuantifierTests.m */,
+			);
+			path = QuantifierTests;
+			sourceTree = "<group>";
+		};
+		6776EF35177F4C09001FC0A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67662DFE181DFF3600A31022 /* OpenSans-Light.ttf */,
+				67662DFF181DFF3600A31022 /* OpenSans-Regular.ttf */,
+				67662E00181DFF3600A31022 /* OpenSans-Semibold.ttf */,
+				6776EF1D177F4C09001FC0A7 /* Quantifier-Info.plist */,
+				6776EF1E177F4C09001FC0A7 /* InfoPlist.strings */,
+				6776EF21177F4C09001FC0A7 /* main.m */,
+				6776EF23177F4C09001FC0A7 /* Quantifier-Prefix.pch */,
+				67C8C95217A5A24000F4EAA9 /* DropboxIcon.png */,
+				6776EF36177F4C09001FC0A7 /* QuantifierTests-Info.plist */,
+				6776EF37177F4C09001FC0A7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			path = QuantifierTests;
+			sourceTree = "<group>";
+		};
+		6786AEAF17B08C3A00F7F990 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6786AE9417B088F900F7F990 /* SZQuantifier.h */,
+				6786AEA917B08A1800F7F990 /* SZQuantifier.m */,
+				6734B4E5177F660700484CEC /* SZQuantifierStore.h */,
+				6786AEA717B08A0400F7F990 /* SZQuantifierStore.m */,
+				6776EF4D177F52A4001FC0A7 /* SZDataPoint.h */,
+				6786AEA017B0895200F7F990 /* SZDataPoint.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6786AEB017B08C5800F7F990 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				676C578318BD7B5D00295013 /* QuantifiersView */,
+				676C578218BD7B4700295013 /* DetailView */,
+				676C578418BD7C1400295013 /* DataPointView */,
+				676C578518BD7C2100295013 /* SettingsView */,
+				67141F3917810CB3000A4F1E /* Storyboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		679F27D218DDECC9004A27BD /* DataPointView Cell Classes */ = {
+			isa = PBXGroup;
+			children = (
+				671F4BA618D7C52300926C73 /* DataPointViewFirstCell.h */,
+				671F4BA718D7C52300926C73 /* DataPointViewFirstCell.m */,
+				671F4BA818D7C52300926C73 /* DataPointViewFirstCell.xib */,
+				67551A7B18DD29570099B339 /* DataPointDateTableViewCell.h */,
+				67551A7C18DD29570099B339 /* DataPointDateTableViewCell.m */,
+				67551A7D18DD29570099B339 /* DataPointDateTableViewCell.xib */,
+				67551A7618D7E0750099B339 /* DatePickerTableViewCell.h */,
+				67551A7718D7E0750099B339 /* DatePickerTableViewCell.m */,
+				67551A7818D7E0750099B339 /* DatePickerTableViewCell.xib */,
+				67B1EF9D18DD406A00007EB2 /* IncrementingTableViewCell.h */,
+				67B1EF9E18DD406A00007EB2 /* IncrementingTableViewCell.m */,
+				67B1EF9F18DD406A00007EB2 /* IncrementingTableViewCell.xib */,
+			);
+			name = "DataPointView Cell Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6776EF11177F4C09001FC0A7 /* Quantifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6776EF3E177F4C09001FC0A7 /* Build configuration list for PBXNativeTarget "Quantifier" */;
+			buildPhases = (
+				6776EF0E177F4C09001FC0A7 /* Sources */,
+				6776EF0F177F4C09001FC0A7 /* Frameworks */,
+				6776EF10177F4C09001FC0A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Quantifier;
+			productName = Quantifier;
+			productReference = 6776EF12177F4C09001FC0A7 /* Quantifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6776EF2C177F4C09001FC0A7 /* QuantifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6776EF41177F4C09001FC0A7 /* Build configuration list for PBXNativeTarget "QuantifierTests" */;
+			buildPhases = (
+				6776EF29177F4C09001FC0A7 /* Sources */,
+				6776EF2A177F4C09001FC0A7 /* Frameworks */,
+				6776EF2B177F4C09001FC0A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6776EF33177F4C09001FC0A7 /* PBXTargetDependency */,
+			);
+			name = QuantifierTests;
+			productName = QuantifierTests;
+			productReference = 6776EF2D177F4C09001FC0A7 /* QuantifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6776EF0A177F4C09001FC0A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Quantifier;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Scott Zero";
+				TargetAttributes = {
+					6776EF11177F4C09001FC0A7 = {
+						DevelopmentTeam = 8GW2ZE42FN;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					6776EF2C177F4C09001FC0A7 = {
+						TestTargetID = 6776EF11177F4C09001FC0A7;
+					};
+				};
+			};
+			buildConfigurationList = 6776EF0D177F4C09001FC0A7 /* Build configuration list for PBXProject "Quantifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6776EF09177F4C09001FC0A7;
+			productRefGroup = 6776EF13177F4C09001FC0A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6776EF11177F4C09001FC0A7 /* Quantifier */,
+				6776EF2C177F4C09001FC0A7 /* QuantifierTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6776EF10177F4C09001FC0A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67662E0B1825504300A31022 /* ThemesTableViewController.xib in Resources */,
+				67D5BFCE19C64840000C66FE /* toggleicon@2x.png in Resources */,
+				67141F4717825B93000A4F1E /* DetailViewController.xib in Resources */,
+				6780A045181D607F00FEB2CA /* StatsHeaderViewController.xib in Resources */,
+				679E869619C62ADA001338A7 /* LaunchView.xib in Resources */,
+				67BC7B0F18BEDC8D00DAB63D /* QuantifierTableViewCell.xib in Resources */,
+				6776EF20177F4C09001FC0A7 /* InfoPlist.strings in Resources */,
+				6776EF28177F4C09001FC0A7 /* Images.xcassets in Resources */,
+				67A2A08118037F8C00E5FC1E /* SettingsTableViewController.xib in Resources */,
+				67B1EFA118DD406A00007EB2 /* IncrementingTableViewCell.xib in Resources */,
+				671F4BAA18D7C52300926C73 /* DataPointViewFirstCell.xib in Resources */,
+				67141F3A17810CB3000A4F1E /* Storyboard.storyboard in Resources */,
+				67551A7F18DD29570099B339 /* DataPointDateTableViewCell.xib in Resources */,
+				676C578118BC483100295013 /* SJZFirstCell.xib in Resources */,
+				67551A7A18D7E0750099B339 /* DatePickerTableViewCell.xib in Resources */,
+				67C8C95317A5A24100F4EAA9 /* DropboxIcon.png in Resources */,
+				67AB8D8E19C645CD002F9016 /* gear@3x.png in Resources */,
+				67761742184029E900D243D6 /* gear@2x.png in Resources */,
+				67D5BFCF19C64840000C66FE /* toggleicon@3x.png in Resources */,
+				67141F3C1781122F000A4F1E /* HeaderView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6776EF2B177F4C09001FC0A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6776EF39177F4C09001FC0A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6776EF0E177F4C09001FC0A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67B1EFA018DD406A00007EB2 /* IncrementingTableViewCell.m in Sources */,
+				67662E06182547A800A31022 /* SZTheme.m in Sources */,
+				671F4BA918D7C52300926C73 /* DataPointViewFirstCell.m in Sources */,
+				6786AEA817B08A0400F7F990 /* SZQuantifierStore.m in Sources */,
+				6734B4ED177F6CA000484CEC /* QuantifiersViewController.m in Sources */,
+				6786AEA117B0895200F7F990 /* SZDataPoint.m in Sources */,
+				67551A7918D7E0750099B339 /* DatePickerTableViewCell.m in Sources */,
+				67662E0A1825504300A31022 /* ThemesTableViewController.m in Sources */,
+				6776EF26177F4C09001FC0A7 /* QuantifierAppDelegate.m in Sources */,
+				67551A7E18DD29570099B339 /* DataPointDateTableViewCell.m in Sources */,
+				6776EF22177F4C09001FC0A7 /* main.m in Sources */,
+				6780A044181D607F00FEB2CA /* StatsHeaderViewController.m in Sources */,
+				676C578018BC483100295013 /* SJZFirstCell.m in Sources */,
+				6786AEAA17B08A1800F7F990 /* SZQuantifier.m in Sources */,
+				67156D1B17FBA16E0089F567 /* UIImage+ImageEffects.m in Sources */,
+				671F4BAD18D7C6AE00926C73 /* TableBasedDataPointViewController.m in Sources */,
+				6771A8BB183092E9004BD6BF /* SZCurveFit.m in Sources */,
+				67141F4617825B93000A4F1E /* DetailViewController.m in Sources */,
+				67A2A08018037F8C00E5FC1E /* SettingsTableViewController.m in Sources */,
+				67BC7B0E18BEDC8D00DAB63D /* QuantifierTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6776EF29177F4C09001FC0A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6776EF3B177F4C09001FC0A7 /* QuantifierTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6776EF33177F4C09001FC0A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6776EF11177F4C09001FC0A7 /* Quantifier */;
+			targetProxy = 6776EF32177F4C09001FC0A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6776EF1E177F4C09001FC0A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6776EF1F177F4C09001FC0A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ../Quantifier;
+			sourceTree = "<group>";
+		};
+		6776EF37177F4C09001FC0A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6776EF38177F4C09001FC0A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6776EF3C177F4C09001FC0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Zero (8GW2ZE42FN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Zero (8GW2ZE42FN)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6776EF3D177F4C09001FC0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Zero (8GW2ZE42FN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Zero (8GW2ZE42FN)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6776EF3F177F4C09001FC0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quantifier/Quantifier-Prefix.pch";
+				INFOPLIST_FILE = "Quantifier/Quantifier-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.scottzero.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6776EF40177F4C09001FC0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quantifier/Quantifier-Prefix.pch";
+				INFOPLIST_FILE = "Quantifier/Quantifier-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.scottzero.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6776EF42177F4C09001FC0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Quantifier.app/Quantifier";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quantifier/Quantifier-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QuantifierTests/QuantifierTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "ro.scottze.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6776EF43177F4C09001FC0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Quantifier.app/Quantifier";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quantifier/Quantifier-Prefix.pch";
+				INFOPLIST_FILE = "QuantifierTests/QuantifierTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "ro.scottze.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6776EF0D177F4C09001FC0A7 /* Build configuration list for PBXProject "Quantifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6776EF3C177F4C09001FC0A7 /* Debug */,
+				6776EF3D177F4C09001FC0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6776EF3E177F4C09001FC0A7 /* Build configuration list for PBXNativeTarget "Quantifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6776EF3F177F4C09001FC0A7 /* Debug */,
+				6776EF40177F4C09001FC0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6776EF41177F4C09001FC0A7 /* Build configuration list for PBXNativeTarget "QuantifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6776EF42177F4C09001FC0A7 /* Debug */,
+				6776EF43177F4C09001FC0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6776EF0A177F4C09001FC0A7 /* Project object */;
+}
