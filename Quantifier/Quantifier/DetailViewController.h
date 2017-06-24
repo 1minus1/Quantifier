@@ -41,11 +41,8 @@
 
 
 - (void)updateTableView:(NSNotification *)notification;
-
-
 - (IBAction)trackNowButtonToggle:(id)sender;
 - (void)selectFirstRow;
-
 - (void)updateBlurredScreenshot;
 - (void)showActionSheetFromBarButtonItem:(UIBarButtonItem *)sender;
 - (void)showDocumentInteractionController:(UIBarButtonItem *)sender;

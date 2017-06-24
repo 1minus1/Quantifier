@@ -123,7 +123,7 @@
     
     if ([self.quantifier.type isEqualToString:@"AutoStepTrackingOn"]) {
         BOOL hasSeenTrackerAlert = [[NSUserDefaults standardUserDefaults]integerForKey:@"hasSeenStepTrackerAutoTrackingAlert"];
-        if (!hasSeenTrackerAlert==1) {
+        if (!(hasSeenTrackerAlert==1)) {
             UIAlertController *autoStepTrackDescriberAlert = [UIAlertController alertControllerWithTitle:@"Step Tracker" message:@"This is your step tracker. It's updated automatically. Enjoy!" preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];

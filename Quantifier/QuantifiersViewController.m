@@ -187,16 +187,8 @@
     }
 
     if (shouldMakeQuantifiersFromDropboxFiles) {
-
         [self makeQuantifiersFromFilesInDropbox];
-        
     }
-    
-    
-    
-    
-
-    
     
     if (self.dvc.quantifier.blurredScreenShot) {
         [self.dvc.quantifier setBlurredScreenShot:Nil];
