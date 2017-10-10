@@ -8,7 +8,7 @@
 
 #import "SZQuantifierStore.h"
 #import "SZQuantifier.h"
-#import <Dropbox/Dropbox.h>
+//#import <Dropbox/Dropbox.h>
 
 @implementation SZQuantifierStore
 

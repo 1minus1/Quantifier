@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Dropbox/Dropbox.h>
+//#import <Dropbox/Dropbox.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface SettingsTableViewController : UIViewController <UITableViewDataSource, UITabBarDelegate,UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>

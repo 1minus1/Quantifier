@@ -11,7 +11,7 @@
 #import "QuantifiersViewController.h"
 #import "SZQuantifierStore.h"
 #import "SZTheme.h"
-#import <Dropbox/Dropbox.h>
+//#import <Dropbox/Dropbox.h>
 //#import <Crashlytics/Crashlytics.h>
 
 
@@ -25,8 +25,6 @@
     
 
     
-    // Start up Crashlytics.
-//    [Crashlytics startWithAPIKey:@"d95642637f31a78340c46281bfa5e127ee57d13b"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
 
 
@@ -79,9 +77,7 @@
 
     
     // If this is the first run, unlink the dropbox account to prevent islinked from return YES after a reinstall
-    
-    
-    
+
     // Similarly, the approach in the Sync API is to set up an account manager
     
     DBAccountManager *accountMgr = [[DBAccountManager alloc] initWithAppKey:@"u5c14zafwxswezc" secret:@"0xeirarxsmgang4"];
@@ -115,163 +111,7 @@
     
 };
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
-  sourceApplication:(NSString *)source annotation:(id)annotation {
-    
-    if ([source isEqualToString:@"com.getdropbox.Dropbox"]) {
-        DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
-        if (account) {
-            NSLog(@"App linked successfully!");
-            
-            UIWindow* topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            topWindow.rootViewController = [UIViewController new];
-            topWindow.windowLevel = UIWindowLevelAlert + 1;
-            
-            UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Great!"
-                                                  message:@"Dropbox account linked."
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-        
-            
-            UIAlertAction *cancelAction = [UIAlertAction
-                                           actionWithTitle:@"OK"
-                                           style:UIAlertActionStyleCancel
-                                           handler:^(UIAlertAction *action)
-                                           {
-                                               //NSLog(@"Cancel action");
-                                           }];
-            [alertController addAction:cancelAction];
-            
-            topWindow.hidden = YES;
-        
-        
-            [topWindow makeKeyAndVisible];
-            [topWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"dropboxLinked" object:nil];
-            
-            return YES;
-        } else {
-            //UIAlertView *confirmation = [[UIAlertView alloc]initWithTitle:@"Hmm." message:@"Dropbox linking cancelled." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            //[confirmation show];
-            
-            UIWindow* topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            topWindow.rootViewController = [UIViewController new];
-            topWindow.windowLevel = UIWindowLevelAlert + 1;
-            
-            UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Hmm."
-                                                  message:@"Dropbox linking cancelled."
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-            
-            
-            UIAlertAction *cancelAction = [UIAlertAction
-                                           actionWithTitle:@"OK"
-                                           style:UIAlertActionStyleCancel
-                                           handler:^(UIAlertAction *action)
-                                           {
-                                               //NSLog(@"Cancel action");
-                                           }];
-            [alertController addAction:cancelAction];
-            
-            topWindow.hidden = YES;
-            
-            
-            [topWindow makeKeyAndVisible];
-            [topWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
-            
-            
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadViewOnDropboxAdd" object:Nil];
-            return NO;
-        }
-    }
-    
-    else{
-        
-        NSDictionary *dict = [self parseQueryString:[url query]];
-        
-        if (dict.count==0)
-        {
-            return TRUE;
-        }
-        NSString *value = [dict valueForKey:@"value"];
-        NSString *quant = [[dict valueForKey:@"quantifier"]stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        
-        SZQuantifier *quantifierForNewPoint;
-        for (int i=0; i<[[SZQuantifierStore sharedStore]allQuantifiers].count; i++) {
-            SZQuantifier *testQuant = [[SZQuantifierStore sharedStore] allQuantifiers][i];
-            if ([quant isEqualToString:[testQuant quantifierName]]) {
-                quantifierForNewPoint=testQuant;
-            }
-        }
-        
-        if (!quantifierForNewPoint) {
-            
-            
-            
-            NSString *messageForError = [@"There is no Quantifier with the name: " stringByAppendingString:quant];
-            
-            UIWindow* topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            topWindow.rootViewController = [UIViewController new];
-            topWindow.windowLevel = UIWindowLevelAlert + 1;
-            
-            
-            UIAlertController *noquantalert = [UIAlertController alertControllerWithTitle:@"Oops." message:messageForError preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *cancelAction = [UIAlertAction
-                                           actionWithTitle:@"OK"
-                                           style:UIAlertActionStyleCancel
-                                           handler:^(UIAlertAction *action)
-                                           {
-                                               //NSLog(@"Cancel action");
-                                           }];
-            [noquantalert addAction:cancelAction];
-            
-            
-            [topWindow makeKeyAndVisible];
-            [topWindow.rootViewController presentViewController:noquantalert animated:YES completion:nil];
-            
-            
-            
-        } else {
-            NSDate *now=[[NSDate alloc]init];
-            
-            NSNumberFormatter *nf =[[NSNumberFormatter alloc] init];
-            [nf setNumberStyle:NSNumberFormatterDecimalStyle];
-            
-            NSNumber *thisdatapointvalue = [nf numberFromString:value];
-            
-            SZDataPoint *thisdatapoint = [[SZDataPoint alloc]initWithDataPointValue:thisdatapointvalue date:now valueString:value];
-            
-            [quantifierForNewPoint addDataPoint:thisdatapoint];
-            [quantifierForNewPoint sortDataSet];
-            [quantifierForNewPoint updateStats];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"addeddatapoint" object:nil];
-            
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTableView" object:nil];
-            
-        }
-        
-    }
-    return NO;
-}
 
-- (NSDictionary *)parseQueryString:(NSString *)query {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    
-    for (NSString *pair in pairs) {
-        NSArray *elements = [pair componentsSeparatedByString:@"="];
-        NSString *key = [[elements objectAtIndex:0] stringByRemovingPercentEncoding];
-        NSString *val = [[elements objectAtIndex:1] stringByRemovingPercentEncoding];
-        
-        [dict setObject:val forKey:key];
-    }
-    return dict;
-}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
