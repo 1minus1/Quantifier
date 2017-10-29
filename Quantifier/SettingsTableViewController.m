@@ -344,6 +344,7 @@
                                           }];
         
     }
+    
     [settingsTable reloadData];
     
     

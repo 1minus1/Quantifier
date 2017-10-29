@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497A34611FA58B7300636D3D /* target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 497A345E1FA58B7200636D3D /* target@2x.png */; };
+		497A34621FA58B7300636D3D /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 497A345F1FA58B7300636D3D /* target.png */; };
+		497A34631FA58B7300636D3D /* target@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 497A34601FA58B7300636D3D /* target@3x.png */; };
 		554005D73CF684C2234A4F40 /* Pods_Quantifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D70E4720A3DA6CE35BE7C5 /* Pods_Quantifier.framework */; };
 		67141F3A17810CB3000A4F1E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67141F3917810CB3000A4F1E /* Storyboard.storyboard */; };
 		67141F3C1781122F000A4F1E /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67141F3B1781122F000A4F1E /* HeaderView.xib */; };
@@ -78,6 +81,9 @@
 		0304B6D07367AD3067BFD1D8 /* libPods-QuantifierTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuantifierTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B12AFAC24BD38B343EA6946 /* Pods-Quantifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quantifier/Pods-Quantifier.release.xcconfig"; sourceTree = "<group>"; };
 		407FE634D80E9834C6F30FB2 /* Pods-Quantifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantifier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quantifier/Pods-Quantifier.debug.xcconfig"; sourceTree = "<group>"; };
+		497A345E1FA58B7200636D3D /* target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "target@2x.png"; path = "../Images and Icons/target@2x.png"; sourceTree = "<group>"; };
+		497A345F1FA58B7300636D3D /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = target.png; path = "../Images and Icons/target.png"; sourceTree = "<group>"; };
+		497A34601FA58B7300636D3D /* target@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "target@3x.png"; path = "../Images and Icons/target@3x.png"; sourceTree = "<group>"; };
 		67141F3917810CB3000A4F1E /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Quantifier/Storyboard.storyboard; sourceTree = "<group>"; };
 		67141F3B1781122F000A4F1E /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = Quantifier/HeaderView.xib; sourceTree = "<group>"; };
 		67141F4317825B92000A4F1E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Quantifier/DetailViewController.h; sourceTree = "<group>"; };
@@ -264,6 +270,9 @@
 				6776EF34177F4C09001FC0A7 /* QuantifierTests */,
 				6776EF14177F4C09001FC0A7 /* Frameworks */,
 				6776EF13177F4C09001FC0A7 /* Products */,
+				497A345F1FA58B7300636D3D /* target.png */,
+				497A345E1FA58B7200636D3D /* target@2x.png */,
+				497A34601FA58B7300636D3D /* target@3x.png */,
 				67761741184029E900D243D6 /* gear@2x.png */,
 				67D5BFCC19C64840000C66FE /* toggleicon@2x.png */,
 				67D5BFCD19C64840000C66FE /* toggleicon@3x.png */,
@@ -436,6 +445,9 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Quantifier;
+				KnownAssetTags = (
+					" ",
+				);
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Scott Zero";
 				TargetAttributes = {
@@ -485,13 +497,16 @@
 				67BC7B0F18BEDC8D00DAB63D /* QuantifierTableViewCell.xib in Resources */,
 				6776EF20177F4C09001FC0A7 /* InfoPlist.strings in Resources */,
 				6776EF28177F4C09001FC0A7 /* Images.xcassets in Resources */,
+				497A34611FA58B7300636D3D /* target@2x.png in Resources */,
 				67A2A08118037F8C00E5FC1E /* SettingsTableViewController.xib in Resources */,
 				67B1EFA118DD406A00007EB2 /* IncrementingTableViewCell.xib in Resources */,
 				671F4BAA18D7C52300926C73 /* DataPointViewFirstCell.xib in Resources */,
 				67141F3A17810CB3000A4F1E /* Storyboard.storyboard in Resources */,
 				67551A7F18DD29570099B339 /* DataPointDateTableViewCell.xib in Resources */,
 				676C578118BC483100295013 /* SJZFirstCell.xib in Resources */,
+				497A34631FA58B7300636D3D /* target@3x.png in Resources */,
 				67551A7A18D7E0750099B339 /* DatePickerTableViewCell.xib in Resources */,
+				497A34621FA58B7300636D3D /* target.png in Resources */,
 				67C8C95317A5A24100F4EAA9 /* DropboxIcon.png in Resources */,
 				67AB8D8E19C645CD002F9016 /* gear@3x.png in Resources */,
 				67761742184029E900D243D6 /* gear@2x.png in Resources */,

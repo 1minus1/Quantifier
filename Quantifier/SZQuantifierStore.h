@@ -33,6 +33,7 @@
 - (void)writeAllQuantifiersCsvFilesToLocalAndDropBoxDirectory;
 - (void)writeThisQuantifiersCSVToLocalAndDropboxDirectory:(SZQuantifier *)quantifierToSave;
 - (BOOL)saveChanges;
+- (BOOL)saveChangesInBackground;
 - (void)postNotificationForDropboxViewUpload;
 //- (NSDictionary *)parseQueryString:(NSString *)query;
 @end

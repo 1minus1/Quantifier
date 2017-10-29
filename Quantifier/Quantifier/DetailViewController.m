@@ -163,7 +163,7 @@
     
     UIBarButtonItem *secondButton= [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"toggleicon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleHeaderViewStyle)];
     UIBarButtonItem *secondSpace  = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:Nil];
-    UIBarButtonItem *thirdButton = [[UIBarButtonItem alloc]initWithTitle:@"Goal" style:UIBarButtonItemStylePlain target:self action:@selector(tappedGoalButton)];
+    UIBarButtonItem *thirdButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"target.png"] style:UIBarButtonItemStylePlain target:self action:@selector(tappedGoalButton)];
     
     UIBarButtonItem *spaceForWhenHeaderToggleIsNotVisible  = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:Nil];
     [spaceForWhenHeaderToggleIsNotVisible setWidth:secondButton.width];
@@ -1239,7 +1239,7 @@
         snapshotImage = quantifier.plot.image;
     }else {
         
-        
+
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
         [dataSetTable drawViewHierarchyInRect:dataSetTable.bounds afterScreenUpdates:NO];
         

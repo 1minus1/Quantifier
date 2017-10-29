@@ -48,6 +48,7 @@
 {
     [self.dataSet addObject:dataPoint];
     [self updateStats];
+    [[SZQuantifierStore sharedStore] saveChangesInBackground];
 }
 
 -(void) removeDataPoint:(SZDataPoint *)datapoint;
@@ -64,6 +65,7 @@
     } else {
         [self updateStats];
     }
+    [[SZQuantifierStore sharedStore] saveChangesInBackground];
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

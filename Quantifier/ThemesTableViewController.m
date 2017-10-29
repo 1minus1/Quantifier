@@ -194,7 +194,7 @@
     titleView.font = [UIFont fontWithName:[SZTheme fontString] size:19];
     //[self viewWillAppear:YES];
     UITextField *title = (UITextField *)self.navigationItem.titleView;
-    NSLog(title.text);
+    NSLog(@"%@",title.text);
     [title setTextColor:[SZTheme tintColor]];
     
     self.navigationController.navigationBarHidden = YES;

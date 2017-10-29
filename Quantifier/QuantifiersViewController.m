@@ -366,7 +366,7 @@
                  NSString *thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars = [thisFilesNameWithoutExtensionWithSpacesForUnderscores stringByTrimmingCharactersInSet:invalidFsChars];
                  
                  
-                 NSLog(thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars);
+                 NSLog(@"%@",thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars);
                  
                  [[[client.filesRoutes downloadData:[@"/" stringByAppendingString:thisFilesName]]
                    setResponseBlock:^(DBFILESFileMetadata *result, DBFILESDownloadError *routeError, DBRequestError *networkError,
@@ -376,7 +376,7 @@
                            NSString *fileContentsAsString = [[NSString alloc] initWithData:fileContents encoding:NSUTF8StringEncoding];
                            
                            NSLog(@"Now printing UTF8 formatted results for");
-                           NSLog(thisFilesName);
+                           NSLog(@"%@",thisFilesName);
                            NSLog(@")\n%@\n\nDone\n", fileContentsAsString);
                            
                            [[SZQuantifierStore sharedStore]createQuantifierFromCSVFileContents:fileContentsAsString name:thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars];

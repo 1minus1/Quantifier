@@ -297,19 +297,26 @@
 -(void)writeAllQuantifiersCsvFilesToLocalAndDropBoxDirectory
 {
     for (SZQuantifier *quantifier in [SZQuantifierStore sharedStore].allQuantifiers) {
+        NSLog(@"%@",quantifier.quantifierName);
+        [quantifier updateCsvContents];
         [[SZQuantifierStore sharedStore] writeThisQuantifiersCSVToLocalAndDropboxDirectory:quantifier];
     }
 }
 
 -(BOOL)saveChanges
 {
-
-
-    
     //returns success or failure
     NSString *path = [self itemArchivePath];
     
     return [NSKeyedArchiver archiveRootObject:allQuantifiers toFile:path];
 }
+
+- (BOOL)saveChangesInBackground
+{
+    [self performSelectorInBackground:@selector(saveChanges) withObject:nil];
+    return true;
+}
+
+
 
 @end

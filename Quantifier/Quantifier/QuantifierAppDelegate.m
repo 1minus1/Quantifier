@@ -109,6 +109,7 @@
     if (authResult != nil) {
         if ([authResult isSuccess]) {
             NSLog(@"Success! User is logged into Dropbox.");
+            [[SZQuantifierStore sharedStore]writeAllQuantifiersCsvFilesToLocalAndDropBoxDirectory];
         } else if ([authResult isCancel]) {
             NSLog(@"Authorization flow was manually canceled by user!");
         } else if ([authResult isError]) {
