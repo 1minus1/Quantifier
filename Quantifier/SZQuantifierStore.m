@@ -8,7 +8,8 @@
 
 #import "SZQuantifierStore.h"
 #import "SZQuantifier.h"
-//#import <Dropbox/Dropbox.h>
+#import <ObjectiveDropboxOfficial/ObjectiveDropboxOfficial.h>
+
 
 @implementation SZQuantifierStore
 
@@ -167,15 +168,7 @@
     
     if (addThisOne) {
         
-        if ([newQuantifier.quantifierName isEqualToString:@"Steps"]) {
-            NSInteger isCurrentlyTrackingSteps = [[NSUserDefaults standardUserDefaults]integerForKey:@"isCurrentlyTrackingSteps"];
-            if (isCurrentlyTrackingSteps) {
-                newQuantifier.type=@"AutoStepTrackingOn";
-            } else{
-                newQuantifier.type=@"AutoStepTrackingOff";
-            }
-            
-        }
+
         
         [allQuantifiers insertObject:newQuantifier atIndex:0];
         [newQuantifier updateCsvContents];
@@ -204,20 +197,14 @@
     NSNumber *counter = @([allQuantifiers count]);
     NSString *fileName = [[[p quantifierName] stringByAppendingString:@".csv"]stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     
-    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
     
-    if (account){
-        DBFilesystem *filesystem = [DBFilesystem sharedFilesystem];
-
-        
-        BOOL success = [filesystem deletePath:[[DBPath root] childPath:fileName]  error:nil];
-        if (success) {
-            NSLog(@"File deleted");
-        } else {
-            NSLog(@"File not deleted.");
-        }
-        //[[self restClient]deletePath:[[@"/" stringByAppendingString:[p quantifierName]] stringByAppendingString:@".csv"]];
+    DBUserClient *client = [DBClientsManager authorizedClient];
+    
+    if (client){
+        [client.filesRoutes deleteV2:[@"/" stringByAppendingString:fileName]];
     }
+    
+
  
     
     BOOL success = [[SZQuantifierStore sharedStore] saveChanges];
@@ -257,7 +244,6 @@
 {
     NSLog(@"writeThisQuantifiersCSVToLocalAndDropboxDirectory has been called.");
     
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = paths[0];
 
@@ -270,33 +256,38 @@
     
     // Write it to Dropbox, too!
     // Get the linked dropboc account if it exists.
-    DBAccount *account = [[DBAccountManager sharedManager]linkedAccount];
-    if (account) {
-        //[UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-        if (![DBFilesystem sharedFilesystem]) {
-            DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
-            [DBFilesystem setSharedFilesystem:filesystem];
-        }
+    
+    DBUserClient *client = [DBClientsManager authorizedClient];
+    
+    if(client){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
         
-        DBFilesystem *myFilesystem = [DBFilesystem sharedFilesystem];
-        DBPath *filePath = [[DBPath root] childPath:fileName];
-        DBFile *fileToUpdate = [myFilesystem openFile:filePath error:nil];
+        NSData *fileData = [[quantifierToSave csvContents] dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
         
-        if (fileToUpdate) {
-            
-            BOOL fileWriteSucess = [fileToUpdate writeString:[quantifierToSave csvContents] error:nil];
-            
-            if (fileWriteSucess) {
-                NSLog(@"File %@ written to Dropbox filesystem successully.", [quantifierToSave quantifierName]);
-                
-            }
-        }else{
-            DBFile *file = [myFilesystem createFile:filePath error:nil];
-            [file writeString:[quantifierToSave csvContents] error:nil];
-        }
-        //[UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-
+        // For overriding on upload
+        DBFILESWriteMode *mode = [[DBFILESWriteMode alloc] initWithOverwrite];
+        
+        [[[client.filesRoutes uploadData:[@"/" stringByAppendingString:fileName]
+                                    mode:mode
+                              autorename:@(YES)
+                          clientModified:nil
+                                    mute:@(NO)
+                               inputData:fileData]
+          setResponseBlock:^(DBFILESFileMetadata *result, DBFILESUploadError *routeError, DBRequestError *networkError) {
+              if (result) {
+                  NSLog(@"%@\n", result);
+              } else {
+                  NSLog(@"%@\n%@\n", routeError, networkError);
+              }
+          }] setProgressBlock:^(int64_t bytesUploaded, int64_t totalBytesUploaded, int64_t totalBytesExpectedToUploaded) {
+              NSLog(@"\n%lld\n%lld\n%lld\n", bytesUploaded, totalBytesUploaded, totalBytesExpectedToUploaded);
+          }];
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+        
     }
+    
+
     
 }
 

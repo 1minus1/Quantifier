@@ -186,13 +186,23 @@
     
     self.navigationController.navigationBar.barTintColor = [SZTheme navBackgroundColor];
     self.navigationController.navigationBar.tintColor = [SZTheme tintColor];
-    UITextField *title = (UITextField *)self.navigationItem.titleView;
-    [title setTextColor:[SZTheme tintColor]];
+    
+
+    
     themesTable.backgroundColor = [SZTheme backgroundColor];
     UITextField *titleView = (UITextField *)self.navigationItem.titleView;
     titleView.font = [UIFont fontWithName:[SZTheme fontString] size:19];
     //[self viewWillAppear:YES];
+    UITextField *title = (UITextField *)self.navigationItem.titleView;
+    NSLog(title.text);
+    [title setTextColor:[SZTheme tintColor]];
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    
     [themesTable reloadData];
+    
+
     
     
     

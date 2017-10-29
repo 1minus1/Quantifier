@@ -42,16 +42,8 @@
     
     [super viewDidLoad];
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    
-    if ([self.quantifier.type isEqualToString:@"AutoStepTrackingOn"]) {
-        [self updateStepTracker];
-        self.refresher=refreshControl;
-        [refreshControl addTarget:self action:@selector(refreshStepTracker)
-                 forControlEvents:UIControlEventValueChanged];
-        [refreshControl setTintColor:[SZTheme tintColor]];
-        [dataSetTable addSubview:refreshControl];
-    };
+
+
     
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:)name:UIDeviceOrientationDidChangeNotification object:nil];
     //    // Do any additional setup after loading the view from its nib.
@@ -105,37 +97,9 @@
     self.headerStyle = 0;
     
     
-    ////////////////////////////////////////////////////
-    /// register to update tracker on resume active if it's a tracker ////
-    ////////////////////////////////////////////////////
+
     
-    if ([self.quantifier.type isEqualToString:@"AutoStepTrackingOn"]){
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(updateStepTracker)
-         name:UIApplicationWillEnterForegroundNotification
-         object:nil];
-    }
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    /// Pop up a uialert telling them about the step tracker if they have never seen it before ///
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    
-    if ([self.quantifier.type isEqualToString:@"AutoStepTrackingOn"]) {
-        BOOL hasSeenTrackerAlert = [[NSUserDefaults standardUserDefaults]integerForKey:@"hasSeenStepTrackerAutoTrackingAlert"];
-        if (!(hasSeenTrackerAlert==1)) {
-            UIAlertController *autoStepTrackDescriberAlert = [UIAlertController alertControllerWithTitle:@"Step Tracker" message:@"This is your step tracker. It's updated automatically. Enjoy!" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-            [autoStepTrackDescriberAlert addAction:cancel];
-            
-            [self presentViewController:autoStepTrackDescriberAlert animated:YES completion:nil];
-            
-            [[NSUserDefaults standardUserDefaults]setInteger:1 forKey:@"hasSeenStepTrackerAutoTrackingAlert"];
-        }
-        
-        
-    }
+
     
     
     ////////////////////////////////////////////////////////
@@ -150,9 +114,7 @@
     /////////////////////////////////
 
     UIBarButtonItem *rightAddButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(trackNowButtonToggle:)];
-    if (![quantifier.type isEqualToString:@"AutoStepTrackingOn"] && ![quantifier.type isEqualToString:@"AutoStepTrackingOff"]) {
-        [self.navigationItem setRightBarButtonItem:rightAddButton];
-    }
+    [self.navigationItem setRightBarButtonItem:rightAddButton];
     
     
     
@@ -181,7 +143,7 @@
     
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
 
-    CGFloat tabBarHeight = 45;
+    CGFloat tabBarHeight = 45 + UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, screenheight-tabBarHeight-44-statusBarHeight, [UIScreen mainScreen].bounds.size.width, tabBarHeight)];
     //[toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
@@ -1217,6 +1179,7 @@
         }
         
         
+        
         //detailViewCount = [userDefaults integerForKey:@"detailViewCount"]+1;
     }
     
@@ -1227,12 +1190,6 @@
   
 }
 
--(void)refreshStepTracker
-{
-    [self.quantifier updateAutoStepTracker];
-    [refresher endRefreshing];
-    
-}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1256,7 +1213,7 @@
     
     if ([self.selectedRowIntegerValue integerValue]==[indexPath row]) {
         
-        if (TRUE) { //![quantifier.type isEqualToString:@"AutoStepTrackingOn"] <-- this can be used instead of TRUE to not allow editing step tracker data points
+        if (TRUE) {
             NSLog(@"Heading off to the datapoint view for %@, datapoint %ld", [quantifier quantifierName], (long)[indexPath row]    );
             
             [[self navigationController] pushViewController:tableBasedDataPointViewControllerToBePushed animated:YES];
@@ -1316,18 +1273,7 @@
     
 }
 
--(void)updateStepTracker
-{
-    
-    if  ([self.quantifier.type isEqualToString:@"AutoStepTrackingOn"])
-    {
-        [self.quantifier updateAutoStepTracker];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadDataTable) name:@"doneUpdatingStepTracker" object:nil];
-        
-        NSLog(@"refreshed tracker from detailviewcontroller");
-    }
 
-}
 
 -(void)dateRangeSelected:(id)sender
 {

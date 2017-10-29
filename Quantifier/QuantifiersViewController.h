@@ -31,7 +31,7 @@
 -(IBAction)tappedAddNewQuantifierButton:(id)sender;
 -(void)reloadQuantifiersTable;
 -(void)linkDBFileSystemAndCreateFilesForCurrentQuantifiersInDropbox;
--(void)updateStepTracker;
+
 -(void)makeQuantifiersFromFilesInDropbox;
 
 

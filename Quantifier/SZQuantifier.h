@@ -33,9 +33,8 @@
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic) BOOL hasSegmentedControlInDetailView;
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) NSDate *timeLastUpdatedStepCounter;
 @property (nonatomic, strong) NSString *incrementAmountString;
-@property (nonatomic, strong) CMPedometer *myStepCounter;
+
 
 
 
@@ -51,7 +50,7 @@
 -(NSString *)shortStringOfTimeSinceNowFromNSDate:(NSDate *)date;
 -(void) updateStats;
 -(void) sortDataSet;
--(void) updateAutoStepTracker;
+
 -(NSOperationQueue *)operationQueue;
 -(NSInteger)heightForPlotHeaderViewWithoutSegmentedButton;
 

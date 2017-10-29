@@ -51,8 +51,7 @@
 - (void)toggleHeaderViewStyle;
 - (void)toggleFitCurve;
 
-- (void)updateStepTracker;
-- (void)refreshStepTracker;
+
 
 - (void)reloadDataTable;
 - (UIView *)addSeparatorLineAtBottom:(UIView *)view;

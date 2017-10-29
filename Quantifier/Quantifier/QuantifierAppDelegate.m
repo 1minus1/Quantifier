@@ -11,7 +11,8 @@
 #import "QuantifiersViewController.h"
 #import "SZQuantifierStore.h"
 #import "SZTheme.h"
-//#import <Dropbox/Dropbox.h>
+#import <ObjectiveDropboxOfficial/ObjectiveDropboxOfficial.h>
+
 //#import <Crashlytics/Crashlytics.h>
 
 
@@ -73,17 +74,10 @@
     [self.window setRootViewController:nc];
     
     
-    
 
+    // This initialized the dropbox client.
     
-    // If this is the first run, unlink the dropbox account to prevent islinked from return YES after a reinstall
-
-    // Similarly, the approach in the Sync API is to set up an account manager
-    
-    DBAccountManager *accountMgr = [[DBAccountManager alloc] initWithAppKey:@"u5c14zafwxswezc" secret:@"0xeirarxsmgang4"];
-    [DBAccountManager setSharedManager:accountMgr];
-
-    
+    [DBClientsManager setupWithAppKey:@"u5c14zafwxswezc"];
     
     
     // Log the currently set theme and font
@@ -97,12 +91,9 @@
     }
     
 
-    NSInteger hasDropboxAccountLinked = 0;
     
-    DBAccount *account = [accountMgr linkedAccount];
-    if (account) {
-        hasDropboxAccountLinked = 1;
-    }
+    
+
     
     [self.window makeKeyAndVisible];
     
@@ -112,7 +103,20 @@
 };
 
 
-
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    DBOAuthResult *authResult = [DBClientsManager handleRedirectURL:url];
+    if (authResult != nil) {
+        if ([authResult isSuccess]) {
+            NSLog(@"Success! User is logged into Dropbox.");
+        } else if ([authResult isCancel]) {
+            NSLog(@"Authorization flow was manually canceled by user!");
+        } else if ([authResult isError]) {
+            NSLog(@"Error: %@", authResult);
+        }
+    }
+    return NO;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

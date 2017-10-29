@@ -12,7 +12,7 @@
 #import "SettingsTableViewController.h"
 #import "SZTheme.h"
 #import "QuantifierTableViewCell.h"
-
+#import <ObjectiveDropboxOfficial/ObjectiveDropboxOfficial.h>
 
 
 //////////////////////////////////////////////////////////////////
@@ -64,16 +64,7 @@
     
     
     
-    
-    ////////////////////////////////////////////////////
-    /// register to update tracker on resume active ////
-    ////////////////////////////////////////////////////
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(updateStepTracker)
-     name:UIApplicationWillEnterForegroundNotification
-     object:nil];
+
     
     ////////////////////////////////////////////////////
     /// register for tableview refresh coming from app delegate ////
@@ -111,15 +102,6 @@
     self.navigationController.navigationBar.translucent = NO;
     
 
-    DBAccount *account = [[DBAccountManager sharedManager]linkedAccount];
-    if (account) {
-        if (![DBFilesystem sharedFilesystem]) {
-            DBFilesystem *filesystem = [[DBFilesystem alloc]initWithAccount:account];
-            [DBFilesystem setSharedFilesystem:filesystem];
-            
-        }
-      //[[DBFilesystem sharedFilesystem] addObserver:self block:^{[self makeQuantifiersFromFilesInDropbox];}];
-    }
     
     NSString *currentTheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentlySetTheme"];
     
@@ -165,16 +147,24 @@
  
     
     
+    NSInteger launchedSinceUpdatingto1point8;
     NSInteger launchCount;
-    launchCount = [userDefaults integerForKey:@"launchCount"]+1;
+    
+    
+    launchCount = [userDefaults integerForKey:@"launchedSinceUpdatingto1point8"]+1;
+    launchedSinceUpdatingto1point8 =[userDefaults integerForKey:@"launchedSinceUpdatingto1point8"];
+    
+    [userDefaults setInteger:1 forKey:@"launchedSinceUpdatingto1point8"];
     [userDefaults setInteger:launchCount forKey:@"launchCount"];
     [userDefaults synchronize];
     
-    if (launchCount == 1)
+    
+    
+    if ((launchCount > 5) && (launchedSinceUpdatingto1point8==0) )
     {
-        //UIAlertView *welcome = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"To create a new Quantifier, tap the + button at the top right."  delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles: nil];
-        //[welcome show];
-        //        };
+        UIAlertView *welcome = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"To create a new Quantifier, tap the + button at the top right."  delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles: nil];
+        [welcome show];
+
         
     };
     
@@ -339,86 +329,76 @@
     
 }
 
+
+
+- (void)printEntries:(NSArray<DBFILESMetadata *> *)entries {
+    for (DBFILESMetadata *entry in entries) {
+        if ([entry isKindOfClass:[DBFILESFileMetadata class]]) {
+            DBFILESFileMetadata *fileMetadata = (DBFILESFileMetadata *)entry;
+            NSLog(@"File data: %@\n", fileMetadata);
+        } else if ([entry isKindOfClass:[DBFILESFolderMetadata class]]) {
+            DBFILESFolderMetadata *folderMetadata = (DBFILESFolderMetadata *)entry;
+            NSLog(@"Folder data: %@\n", folderMetadata);
+        } else if ([entry isKindOfClass:[DBFILESDeletedMetadata class]]) {
+            DBFILESDeletedMetadata *deletedMetadata = (DBFILESDeletedMetadata *)entry;
+            NSLog(@"Deleted data: %@\n", deletedMetadata);
+        }
+    }
+}
+
 -(void)makeQuantifiersFromFilesInDropbox
 {
-    //if ([UIApplication sharedApplication].networkActivityIndicatorVisible==NO) {
-    //    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-    //}
     
-    //NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    dispatch_queue_t downloadQueue = dispatch_queue_create("downloader", NULL);
-    
-    
-    
-    
-    dispatch_async(downloadQueue, ^{
-        
-        //  DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
-        
-        
-        DBFilesystem *filesystem =[DBFilesystem sharedFilesystem];
-        //DBSyncStatus filesystemStatus = [filesystem status];
-        BOOL hasSynced = [filesystem completedFirstSync];
-        //BOOL notDownloading = (filesystemStatus & DBSyncStatusDownloading) == 0x0;
-        //BOOL notSynching = (filesystemStatus & DBSyncStatusSyncing) == 0x0;
-        
-        //BOOL readyToGo = (hasSynced & notDownloading & notSynching);
-        
-        if (hasSynced) {
-            NSLog(@"Dropbox is ready to go. Starting conversion of dropbox files to Quantifiers.");
-            NSArray *listOfDBFiles = [filesystem listFolder:[DBPath root] error:nil];
-            
-            for (DBFileInfo *fileInfo in listOfDBFiles) {
-                
-                
-                //NSLog(@"Making Quantifier from a Dropbox File.");
-                DBPath *filePath = [fileInfo path];
-                NSString *thisFilesName =[filePath name];
-                NSString *thisFilesNameWithoutExtension = [thisFilesName stringByDeletingPathExtension];
-                NSString *thisFilesNameWithoutExtensionWithSpacesForUnderscores = [thisFilesNameWithoutExtension stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-                
-                NSCharacterSet *invalidFsChars = [NSCharacterSet characterSetWithCharactersInString:@"_/\\?%*|\"<>"];
-                NSString *thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars = [thisFilesNameWithoutExtensionWithSpacesForUnderscores stringByTrimmingCharactersInSet:invalidFsChars];
-                
-                
-                DBFile *file = [filesystem openFile:filePath error:nil];
-                BOOL filecachedyet = [file status].cached;
-                if (filecachedyet==YES) {
-                    NSString *fileContentsAsString = [file readString:nil];
-                    //[filesystem deletePath:filePath error:nil];
-                    [[SZQuantifierStore sharedStore]createQuantifierFromCSVFileContents:fileContentsAsString name:thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars];
-                }else{
-                    
-                    NSLog(@"file not cached, trying again shortly\n");
-                }
-                
-                [file close];
-                
-            }
-            
-            NSInteger currentNumberOfQuantifiers = [[SZQuantifierStore sharedStore]numberOfQuantifiers];
-            NSInteger currentNumberOfFilesInDB = [listOfDBFiles count];
 
-            if (currentNumberOfQuantifiers>=currentNumberOfFilesInDB) {
-                
-                NSLog(@"Current count: %ld Dropbox file(s).", (long)currentNumberOfFilesInDB);
-                NSLog(@"Done creating Quantifiers from Dropbox files.");
-                //[UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-                
-            } else{
-                [self performSelector:@selector(makeQuantifiersFromFilesInDropbox) withObject:nil] ;
-            }
-        } else{
-            NSLog(@"Dropbox not quite synched, might want to suggest trying again.");
-            
-        }
-  
-    });
+    
+    DBUserClient *client = [DBClientsManager authorizedClient];
+    
+    [[client.filesRoutes listFolder:@""]
+     setResponseBlock:^(DBFILESListFolderResult *response, DBFILESListFolderError *routeError, DBRequestError *networkError) {
+         if (response) {
+             NSArray<DBFILESMetadata *> *entries = response.entries;
+             
+             for (DBFILESMetadata *metadata in entries) {
+                 NSString *thisFilesName =  metadata.name;
+                 NSString *thisFilesNameWithoutExtension = [thisFilesName stringByDeletingPathExtension];
+                 NSString *thisFilesNameWithoutExtensionWithSpacesForUnderscores = [thisFilesNameWithoutExtension stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                 NSCharacterSet *invalidFsChars = [NSCharacterSet characterSetWithCharactersInString:@"_/\\?%*|\"<>"];
+                 NSString *thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars = [thisFilesNameWithoutExtensionWithSpacesForUnderscores stringByTrimmingCharactersInSet:invalidFsChars];
+                 
+                 
+                 NSLog(thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars);
+                 
+                 [[[client.filesRoutes downloadData:[@"/" stringByAppendingString:thisFilesName]]
+                   setResponseBlock:^(DBFILESFileMetadata *result, DBFILESDownloadError *routeError, DBRequestError *networkError,
+                                      NSData *fileContents) {
+                       if (result) {
+                           //NSLog(@"%@\n\n", result);
+                           NSString *fileContentsAsString = [[NSString alloc] initWithData:fileContents encoding:NSUTF8StringEncoding];
+                           
+                           NSLog(@"Now printing UTF8 formatted results for");
+                           NSLog(thisFilesName);
+                           NSLog(@")\n%@\n\nDone\n", fileContentsAsString);
+                           
+                           [[SZQuantifierStore sharedStore]createQuantifierFromCSVFileContents:fileContentsAsString name:thisFilesNameWithoutExtensionWithSpacesForUnderscoresWithoutBadChars];
+                       } else {
+                           NSLog(@"%@\n%@\n", routeError, networkError);
+                       }
+                   }] setProgressBlock:^(int64_t bytesDownloaded, int64_t totalBytesDownloaded, int64_t totalBytesExpectedToDownload) {
+                       //NSLog(@"%lld\n%lld\n%lld\n", bytesDownloaded, totalBytesDownloaded, totalBytesExpectedToDownload);
+                   }];
+             }
+             
+
+         } else {
+             NSLog(@"%@\n%@\n", routeError, networkError);
+         }
+     }];
+    
 
 
     
 
-    }
+}
 
 
 
@@ -683,17 +663,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuantifiersTable) name:@"reloadViewOnDropboxAdd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkDBFileSystemAndCreateFilesForCurrentQuantifiersInDropbox) name:@"dropboxLinked" object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuantifiersTable) name:@"doneUpdatingStepTracker" object:nil];
+
     
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     
-    
-    /////////////////////////////////////////////
-    /// if there's a step tracker, update it ////
-    /////////////////////////////////////////////
-    
-    [self updateStepTracker];
 
 }
 
@@ -705,21 +679,12 @@
 
 -(void)linkDBFileSystemAndCreateFilesForCurrentQuantifiersInDropbox
 {
-    DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:[[DBAccountManager sharedManager] linkedAccount]];
-    [DBFilesystem setSharedFilesystem:filesystem];
+
 
     [[SZQuantifierStore sharedStore] writeAllQuantifiersCsvFilesToLocalAndDropBoxDirectory];
 }
 
--(void)updateStepTracker
-{
-    for (SZQuantifier *quantifer in [[SZQuantifierStore sharedStore]allQuantifiers]) {
-        if ([quantifer.type isEqualToString:@"AutoStepTrackingOn"]) {
-            [quantifer updateAutoStepTracker];
-            NSLog(@"updated step tracker from quantifiers view");
-        }
-    }
-}
+
 
 - (void)viewDidUnload {
     [self setTableView:nil];

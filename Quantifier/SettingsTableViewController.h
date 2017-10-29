@@ -25,7 +25,6 @@
 - (void)didPressRateLink;
 - (void)didPressImportNewDropboxFilesLink;
 - (void)didPressThemesLink;
-- (void)updateStepTrackingSwitch;
 - (void)reloadTable;
 - (void)unlinkDropbox;
 @end
