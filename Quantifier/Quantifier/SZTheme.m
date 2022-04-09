@@ -8,6 +8,7 @@
 
 #import "SZTheme.h"
 
+
 @implementation SZTheme
 
 
@@ -245,13 +246,13 @@
 //        [[NSUserDefaults standardUserDefaults] setObject:navBackgroundColorData forKey:@"navBackgroundColor"];
 //        [[NSUserDefaults standardUserDefaults] setObject:selectedCellColorData forKey:@"selectedCellColor"];
         
-        UIColor *backgroundFillColor = [UIColor colorWithWhite:0.1 alpha:1];
+        UIColor *backgroundFillColor = [UIColor colorWithWhite:0.0 alpha:1];
         UIColor *tintColor =           [UIColor colorWithRed:255.0f/255.0f green:64.0f/255.0f blue:64.0f/255.0f alpha:1];//204;50;153]//[UIColor colorWithRed:255.0f/255.0f green:153.0f/255.0f blue:51.0f/255.0f  alpha:1];
         UIColor *pointHighlightColor = [UIColor colorWithRed:255.0f  /255.0f green:217.0f/255.0f  blue:38.0f/255.0f alpha:1];
         UIColor *mainTextColor =       [UIColor lightGrayColor];
         UIColor *detailTextColor =     [UIColor colorWithWhite:.5 alpha:1];
-        UIColor *navBackgroundColor=   [UIColor colorWithWhite:0.2 alpha:1];
-        UIColor *selectedCellColor=    [UIColor colorWithWhite:0.13 alpha:1];
+        UIColor *navBackgroundColor=   [UIColor colorWithWhite:0.1 alpha:1];
+        UIColor *selectedCellColor=    [UIColor colorWithWhite:0.1 alpha:1];
         UIColor *goalLineColor     =   [UIColor colorWithRed:102.0f  /255.0f green:0.0f  /255.0f blue:0.0f  /255.0f alpha:1];
         UIColor *segmentedControlColor=tintColor;
         // UIColor *selectedCellColor =   [UIColor colorWithRed:255.0f/255.0f green:64.0f/255.0f blue:64.0f/255.0f alpha:0.35];

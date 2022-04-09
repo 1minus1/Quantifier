@@ -143,6 +143,7 @@
 
     if ([indexPath section]==0)
     {
+
         if ([indexPath row]==0)
         {
             [SZTheme setTheme:@"Denim"];

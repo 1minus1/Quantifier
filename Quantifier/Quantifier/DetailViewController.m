@@ -142,8 +142,8 @@
     /////////////////////////////////
     
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-
-    CGFloat tabBarHeight = 45 + UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
+    CGFloat insetsheight =UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
+    CGFloat tabBarHeight = 45+insetsheight;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, screenheight-tabBarHeight-44-statusBarHeight, [UIScreen mainScreen].bounds.size.width, tabBarHeight)];
     //[toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
@@ -154,17 +154,21 @@
     [toolBar setTintColor:tintColor];
     [toolBar setBarTintColor:navBackgroundColor];
     [toolBar setTranslucent:YES];
-        
+    
+    
     
     //Create a button for actionsheet.
     UIBarButtonItem *firstButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheetFromBarButtonItem:)];
+    firstButton.imageInsets = UIEdgeInsetsMake(-insetsheight/2, 0, 0, 0);
+    
     UIBarButtonItem *firstSpace  = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:Nil];
     
     
     UIBarButtonItem *secondButton= [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"toggleicon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleHeaderViewStyle)];
+    secondButton.imageInsets = UIEdgeInsetsMake(-insetsheight/2, 0, 0, 0);
     UIBarButtonItem *secondSpace  = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:Nil];
     UIBarButtonItem *thirdButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"target.png"] style:UIBarButtonItemStylePlain target:self action:@selector(tappedGoalButton)];
-    
+    thirdButton.imageInsets = UIEdgeInsetsMake(-insetsheight/2, 0, 0, 0);
     UIBarButtonItem *spaceForWhenHeaderToggleIsNotVisible  = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:Nil];
     [spaceForWhenHeaderToggleIsNotVisible setWidth:secondButton.width];
     

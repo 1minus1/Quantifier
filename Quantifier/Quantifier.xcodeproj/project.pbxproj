@@ -210,8 +210,8 @@
 		676C578218BD7B4700295013 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
-				67141F4417825B92000A4F1E /* DetailViewController.m */,
 				67141F4317825B92000A4F1E /* DetailViewController.h */,
+				67141F4417825B92000A4F1E /* DetailViewController.m */,
 				67141F4517825B92000A4F1E /* DetailViewController.xib */,
 				676C577D18BC483100295013 /* SJZFirstCell.h */,
 				676C577E18BC483100295013 /* SJZFirstCell.m */,
